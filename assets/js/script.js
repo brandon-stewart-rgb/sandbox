@@ -39,8 +39,8 @@ var nonLinearStepSlider = document.getElementById('span-slider');
 noUiSlider.create(nonLinearStepSlider, {
     // starting values
     start: [1900, 2021],
-    //  minimum distance between the handles can be set using the margin option currently set at a 19 to keep separate
-    margin: 19,
+    //  minimum distance between the handles can be set using the margin option currently set at a 20 to keep separate
+    margin: 20,
     // adds color to bar
     connect: true,
      // tool tips to display current value
