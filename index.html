@@ -8,6 +8,11 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.css" integrity="sha512-zK13DHt+RvOBWVI7UsG9euzg5sl1QUhJKZVu20rrvPLaTito+K9elJBtEPWi3YJ+O6o5tYp6cdOc4lN9ePm9Lw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- noUiSlider must be loaded in head along with wNumb.js for regular integers-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js" integrity="sha512-jWNpWAWx86B/GZV4Qsce63q5jxx/rpWnw812vh0RE+SBIo/mmepwOSQkY2eVQnMuE28pzUEO7ux0a5sJX91g8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js" integrity="sha512-igVQ7hyQVijOUlfg3OmcTZLwYJIBXU63xL9RC12xBHNpmGJAktDnzl9Iw0J4yrSaQtDxTTVlwhY730vphoVqJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 
@@ -18,11 +23,14 @@
             </div>
         </section>
 
-        <div class="container is-max-desktop ">    
+        <div class="container is-desktop is-fluid">
             
-             <div class="columns">
-                <div class="column is-one-third is-offset-one-third mt-3"> 
+           
+            
+             <div class="columns is-centered ">
+                <div class="column is-full-mobile is-half-tablet is-one-third-widescreen is-one-fifth-fullhd mt-3  "> 
 
+           
 
                     <!-- search input -->
                     <div class="field ">
@@ -35,13 +43,26 @@
                     </div>
 
 
+                    <!--  IMDB rating -->
+                    <div class="our-box box mb-1">
+                        <!-- input box set to capture value of slider for form -->
+                        <!-- input box type set to hidden to remove from view.  Set to 'text' to test and reveal value. -->
+                        <input type="hidden" id="imdb" name="imdb" placeholder="0">
+                            <div id="slider" class="mt-4"></div>
+                            <h2 class="subtitle is-size-6  has-text-centered mt-2">IMDB Rating Range</h2>
+                     </div>
+                    <!-- IMDB rating -->
+                    
+                    
+
                     <!-- select country -->
-                    <div class="field">
+                    <div class="field mb-1">
                         <div class="control has-icons-left">
 
                             <div class="select is-primary is-fullwidth">
                                 <select>
                                     <option selected>Select Country</option>
+                                    <option value="Any">Any</option>
                                     <option value="Afghanistan">Afghanistan</option>
                                     <option value="Åland Islands">Åland Islands</option>
                                     <option value="Albania">Albania</option>
@@ -298,13 +319,14 @@
                     <!-- select country -->
 
                     <!-- select type -->
-                    <div class="field ">
+                    <div class="field mb-1">
                         <div class="control has-icons-left ">
 
                             <div class="select is-primary is-fullwidth ">
                                 <select>
                                 <option>Select Type</option>
-                                <option>With options</option>
+                                <option value="Movies">Movies</option>
+                                <option value="Series">Series</option>
                                 </select>
                             </div>
 
@@ -318,7 +340,7 @@
 
 
                     <!-- select genre -->
-                    <div class="field ">
+                    <div class="field mb-1">
                         <div class="control has-icons-left ">
 
                             <div class="select is-primary is-fullwidth ">
@@ -339,7 +361,7 @@
 
 
                     <!-- select person -->
-                    <div class="field ">
+                    <div class="field mb-1">
                         <div class="control has-icons-left ">
 
                             <div class="select is-primary is-fullwidth ">
@@ -359,13 +381,14 @@
 
 
                     <!-- select filter -->
-                    <div class="field ">
+                    <div class="field mb-1">
                         <div class="control has-icons-left ">
 
                             <div class="select is-primary is-fullwidth ">
                                 <select>
                                 <option>Select Filter</option>
-                                <option>With options</option>
+                                <option value="Expiring">Expiring</option>
+                                <option value="New Last 24 Hours"></option>
                                 </select>
                             </div>
 
@@ -378,7 +401,7 @@
                     <!-- select filter -->
 
                     <!-- select audio -->
-                    <div class="field ">
+                    <div class="field mb-1">
                         <div class="control has-icons-left ">
 
                             <div class="select is-primary is-fullwidth ">
@@ -398,7 +421,7 @@
 
 
                     <!-- select subtitle -->
-                    <div class="field ">
+                    <div class="field mb-1">
                         <div class="control has-icons-left ">
 
                             <div class="select is-primary is-fullwidth ">
@@ -417,27 +440,18 @@
                     <!-- select subtitle -->
 
 
-                    <!--  IMDB rating -->
-                    
-                        <div class="box">
-                        <!-- pulled from: https://wikiki.github.io/form/slider/ -->
-
-                        <!-- may have to implement something more along the lines of: https://codepen.io/jameswilson/pen/LEjgem -->
-                        <!-- or: https://ghusse.github.io/jQRangeSlider/documentation.html#quickStart -->
-
-                        <h3 class="is-size-6 has-text-centered ">IDMB Rating</h3>
-
-                            <input id="sliderWithValue" class="slider has-output-tooltip is-medium is-fullwidth" min="0" max="7" value="10" step="1" type="range">
-                            <output for="sliderWithValue">10</output>
-                        </div>
-                   
-                    <!-- IMDB rating -->
+                      <!--  year created span -->
+                      <div class="our-box box ">
+                        <!-- input box set to capture value of slider for form -->
+                        <!-- input box type set to hidden to remove from view.  Set to 'text' to test and reveal value. -->
+                        <input type="hidden" id="year-span" name="year" placeholder="0">
+                            <div id="span-slider" class="mt-4"></div>
+                            <h2 class="subtitle is-size-6  has-text-centered mt-2">Years Created Range</h2>
+                     </div>
+                    <!--  year created span -->
                     
 
-
-                    
-       
-
+                      
 
 
                 </div>
@@ -446,14 +460,14 @@
             <!-- columns -->
 
 
-          
+      
       
     </div>
+    <!-- container -->
+
+    
     <script src="/assets/js/script.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.4/dist/js/bulma-slider.min.js"></script>
-    <script>
-      bulmaSlider.attach();
-    </script>
+
     
 </body>
 </html>

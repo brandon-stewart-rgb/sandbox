@@ -1,0 +1,40 @@
+:root {
+    /* primary green taken from bulma */
+    --primary-color: #3FB8AF;
+}
+
+
+body .container .our-box.box {
+  
+    padding: 30px 30px 10px 30px ;
+    border: solid 1px var(--primary-color);
+    box-shadow: none;
+}
+
+/* targeting slider options and overriding default styles  */
+ body .container .noUi-touch-area {
+   height: 100%;
+   width: 100%;
+  
+   /* border: solid 1px #AAA; */
+ }
+ body .container .noUi-connect {
+   background: var(--primary-color);
+ }
+ body .container .noUi-tooltip {
+   display: block;
+   position: absolute;
+   border: 1px solid var(--primary-color);
+   border-radius: 3px;
+   background: #fff;
+   color: #444;
+   padding: 1px 6px;
+   text-align: center;
+   white-space: nowrap;
+   font-size: 14px;
+   margin-right:2px;
+   margin-left: 2px;
+   /* needed to fix small right border for dates  */
+  
+ }
+
