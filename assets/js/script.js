@@ -3,7 +3,7 @@ var slider = document.getElementById('slider');
 noUiSlider.create(slider, {
     // starting value range
     start: [0, 10],
-    //  minimum distance between the handles can be set using the margin option
+    //  minimum distance between the handles can be set using the margin option 
     margin: 1,
     // adds color to bar
     connect: true,
@@ -65,6 +65,7 @@ nonLinearStepSlider.noUiSlider.on('update', function (values) {
     yearsInput.value = yearsValue;
     console.log(values)
 });
+
 
 yearsInput.addEventListener('change', function () {
     nonLinearStepSlider.noUiSlider.set([null, this.value]);
